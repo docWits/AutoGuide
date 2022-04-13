@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/autoDB
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: orapass
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+swagger:
+  base-url: http://localhost:8080/
+
