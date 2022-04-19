@@ -33,6 +33,12 @@ public class Auto {
     public Auto() {
     }
 
+    public Auto(String number, String brand, String color, LocalDate releaseDate) {
+        this.number = number;
+        this.brand = brand;
+        this.color = color;
+        this.releaseDate = releaseDate;
+    }
 
     public Long getId() {
         return id;

@@ -1,0 +1,18 @@
+type Auto {
+    id: ID!,
+    number: String,
+    brand: String,
+    color: String,
+    releaseDate: String
+}
+
+type AutoRequest {
+    number: String,
+    brand: String,
+    color: String,
+    releaseDate: String
+}
+
+type Query{
+    auto(id: ID): Auto
+}

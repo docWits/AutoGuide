@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 @Repository
 public interface AutoRepository extends JpaRepository<Auto,Long> {
 
+    Auto findByBrand(String brand);
+
     @Query(value = "select adding_time from auto order by adding_time asc limit 1", nativeQuery=true)
     LocalDateTime findFirstRecord();
 

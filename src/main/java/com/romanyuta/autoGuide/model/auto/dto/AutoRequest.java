@@ -12,10 +12,6 @@ public class AutoRequest {
     private String color;
     private LocalDate releaseDate;
 
-    public AutoRequest(String number, String brand) {
-        this.number = number;
-        this.brand = brand;
-    }
 
     public String getNumber() {
         return number;

@@ -12,7 +12,7 @@ import java.util.List;
 public interface AutoService {
 
     Auto findAutoById(Long id);
-    List<AutoResponse> findAllAuto(String field);
+    List<AutoResponse> findAllAutoWithSort(String field);
     void addAuto(AutoRequest auto);
     void deleteAuto(Long id);
     Statistics statBase();

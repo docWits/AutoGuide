@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
@@ -27,23 +28,16 @@ public class AutoServiceTest {
 
     @Test
     void findAutoById_shouldCallRepository(){
-        final Auto auto = mock(Auto.class);
-        when(autoRepository.getById(ID)).thenReturn(auto);
 
-        final Auto actual = autoService.findAutoById(ID);
-
-        assertNotNull(actual);
-        assertEquals(auto,actual);
-        verify(autoRepository).getById(ID);
     }
 
     @Test
     void addAuto_shouldCallRepository(){
-        final AutoRequest auto = mock(AutoRequest.class);
-        final Auto auto1 = mock(Auto.class);
+        AutoRequest request = new AutoRequest();
+        request.setBrand("test brand");
 
-        autoService.addAuto(auto);
-
-        verify(autoRepository).save(auto1);
+        when(autoRepository.save(any(Auto.class))).thenReturn(new Auto());
+        autoService.addAuto(request);
+        assertThat(autoRepository.findByBrand("test brand").getBrand()).isSameAs(request.getBrand());
     }
 }

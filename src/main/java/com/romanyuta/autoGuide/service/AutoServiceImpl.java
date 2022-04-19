@@ -35,9 +35,11 @@ public class AutoServiceImpl implements AutoService {
         return autoRepository.findById(id).orElse(null);
     }
 
+
+
     @Override
     @Cacheable("users")
-    public List<AutoResponse> findAllAuto(String field) {
+    public List<AutoResponse> findAllAutoWithSort(String field) {
         log.info("getting all auto");
         return autoRepository.findAll(Sort.by(Sort.Direction.ASC,field))
                 .stream()

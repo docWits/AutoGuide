@@ -1,7 +1,6 @@
 package com.romanyuta.autoGuide.api;
 
 import com.romanyuta.autoGuide.model.Statistics;
-import com.romanyuta.autoGuide.model.auto.Auto;
 import com.romanyuta.autoGuide.model.auto.dto.AutoRequest;
 import com.romanyuta.autoGuide.model.auto.dto.AutoResponse;
 import com.romanyuta.autoGuide.service.AutoService;
@@ -35,7 +34,7 @@ public class AutoController {
     )
     @GetMapping(value = "/{field}",produces = APPLICATION_JSON_VALUE)
     public List<AutoResponse> findAllAutos(@PathVariable @Parameter(description = "Параметр для сортировки") String field){
-        return autoService.findAllAuto(field);
+        return autoService.findAllAutoWithSort(field);
     }
 
     @Operation(
